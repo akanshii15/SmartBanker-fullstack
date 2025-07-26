@@ -1,0 +1,497 @@
+/* General body styling for centering the app */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0d1117;
+    color: #c9d1d9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Styling for all sections */
+.section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background: #161b22;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2);
+    width: 100%;
+    max-width: 380px;
+    box-sizing: border-box;
+    text-align: center;
+    gap: 15px;
+}
+
+.section.active {
+    display: flex;
+}
+
+/* Fix: Stack signup inputs vertically */
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+}
+
+/* Headings */
+.section h2 {
+    color: #58a6ff;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.8em;
+}
+
+/* Inputs */
+input {
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+input:focus {
+    outline: none;
+    border-color: #58a6ff;
+    box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.3);
+}
+
+/* Buttons */
+button {
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    background-color: #238636;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #2ea043;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background-color: #1f5e2d;
+}
+
+.logout {
+    background-color: #da3633;
+    margin-top: 20px;
+}
+
+.logout:hover {
+    background-color: #f85149;
+}
+
+/* Extra options */
+.extra-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-size: 0.9em;
+    margin: 10px 0 15px 0;
+}
+
+.extra-options label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.extra-options input[type="checkbox"] {
+    accent-color: #238636;
+    cursor: pointer;
+    width: auto;
+    margin: 0;
+}
+
+.extra-options a {
+    text-decoration: none;
+    color: #58a6ff;
+    transition: color 0.2s ease;
+}
+
+.extra-options a:hover {
+    text-decoration: underline;
+    color: #79c0ff;
+}
+
+/* PIN Display */
+#pin-display {
+    font-size: 2.5em;
+    margin: 20px 0;
+    letter-spacing: 12px;
+    background-color: #0d1117;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Keypad */
+#keypad {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+    margin-top: 20px;
+}
+
+.pin-key,
+#clear-pin,
+#submit-pin {
+    padding: 18px;
+    font-size: 1.2em;
+    border-radius: 6px;
+    background-color: #21262d;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.pin-key:hover,
+#clear-pin:hover,
+#submit-pin:hover {
+    background-color: #30363d;
+    transform: translateY(-2px);
+}
+
+.pin-key:active,
+#clear-pin:active,
+#submit-pin:active {
+    background-color: #1f2329;
+    transform: translateY(0);
+}
+
+#clear-pin {
+    background-color: #f7b926;
+    color: #161b22;
+}
+
+#clear-pin:hover {
+    background-color: #e3a82e;
+}
+
+#submit-pin {
+    background-color: #238636;
+    color: white;
+}
+
+#submit-pin:hover {
+    background-color: #2ea043;
+}
+
+/* Transaction List */
+ul#transactions {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    width: 100%;
+    max-height: 180px;
+    overflow-y: auto;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    background-color: #0d1117;
+    text-align: left;
+}
+
+ul#transactions li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #30363d;
+    font-size: 0.9em;
+}
+
+ul#transactions li:last-child {
+    border-bottom: none;
+}
+
+/* General links */
+a {
+    color: #58a6ff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Forgot Password Result Message */
+#fp-result {
+    margin-top: 15px;
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#fp-result[style*="color: green"] {
+    background-color: rgba(35, 134, 54, 0.2);
+}
+
+#fp-result[style*="color: red"] {
+    background-color: rgba(218, 54, 51, 0.2);
+}
+
+/* Toast Message */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 10000;
+    opacity: 0;
+    animation: fadeInOut 3s forwards;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    font-size: 0.95em;
+    min-width: 200px;
+    text-align: center;
+}
+
+.toast.success {
+    background-color: #28a745;
+}
+
+.toast.error {
+    background-color: #dc3545;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    90% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(20px); }
+}
+
+/* Help Widget */
+#help-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    background-color: #1f6feb;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#help-toggle:hover {
+    background-color: #2a85ff;
+    transform: scale(1.05);
+}
+
+#help-toggle:active {
+    transform: scale(0.95);
+}
+
+#help-panel {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    max-height: 400px;
+    max-width: 90vw;
+    background-color: #161b22;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    padding: 20px;
+    display: none;
+    overflow-y: auto;
+    z-index: 9998;
+    font-size: 14px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+}
+
+#help-panel h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+    color: #58a6ff;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    margin: 12px 0 6px;
+    color: #58a6ff;
+    background: none;
+    border: none;
+    text-align: left;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 1em;
+    transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+    color: #79c0ff;
+    text-decoration: underline;
+}
+
+.faq-answer {
+    display: none;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 5px;
+    color: #c9d1d9;
+    line-height: 1.6;
+    background-color: #0d1117;
+    border-left: 3px solid #238636;
+    border-radius: 0 4px 4px 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Voice Assistant Widget */
+#voice-assistant-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+#voice-toggle {
+    background-color: #9b59b6;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#voice-toggle:hover {
+    background-color: #8e44ad;
+    transform: scale(1.05);
+}
+
+#voice-toggle:active {
+    transform: scale(0.95);
+}
+
+#voice-toggle.listening {
+    background-color: #e74c3c;
+    animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+    from { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    to { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+}
+
+#voice-status {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 8px 12px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    white-space: nowrap;
+    font-size: 0.9em;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 480px) {
+    .section {
+        padding: 20px 25px;
+        max-width: 90vw;
+    }
+
+    .section h2 {
+        font-size: 1.5em;
+    }
+
+    #keypad {
+        gap: 8px;
+    }
+
+    .pin-key, #clear-pin, #submit-pin {
+        padding: 15px;
+        font-size: 1.1em;
+    }
+
+    #help-panel {
+        width: 90vw;
+        right: 5vw;
+        bottom: 70px;
+    }
+
+    #help-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    .toast {
+        width: 90%;
+        left: 5%;
+        transform: translateX(0);
+    }
+
+    @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(20px); }
+        10% { opacity: 1; transform: translateY(0); }
+        90% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(20px); }
+    }
+
+    #voice-assistant-widget {
+        bottom: 15px;
+        left: 15px;
+    }
+
+    #voice-toggle {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    #voice-status {
+        bottom: 50px;
+    }
+}

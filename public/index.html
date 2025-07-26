@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SmartBanker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <!-- Sign Up Section -->
+    <section id="signup-section" class="section active">
+      <h2>Sign Up</h2>
+      <div class="form-fields">
+        <input id="new-username" placeholder="Username" />
+        <input id="new-password" type="password" placeholder="Password" />
+        <input id="new-name" placeholder="Full Name" />
+        <input id="new-age" type="number" placeholder="Age, must be >=18" />
+        <input id="new-bank" placeholder="Bank Name" />
+        <input id="new-account" placeholder="Account Number" />
+        <input id="new-pin" type="password" maxlength="4" placeholder="4-digit PIN" />
+        <input type="email" id="new-email" placeholder="Email (for OTP)" required />
+        <button id="signup-btn">Create Account</button>
+      </div>
+      <p>Already have an account? <a href="#" id="to-login">Login here</a></p>
+    </section>
+
+    <!-- Login Section -->
+    <section id="login-section" class="section">
+      <h2>Login</h2>
+      <input id="username" placeholder="Username" />
+      <input id="password" type="password" placeholder="Password" />
+      <div class="extra-options">
+        <label><input type="checkbox" id="remember-me" /> Remember Me</label>
+        <a href="#" id="forgot-password-link">Forgot Password?</a>
+      </div>
+      <button id="login-btn">Login</button>
+      <p>Don't have an account? <a href="#" id="to-signup">Sign up here</a></p>
+    </section>
+
+    <!-- OTP Verification -->
+    <section id="otp-section" class="section">
+      <h2>OTP Verification</h2>
+      <input id="otp-input" placeholder="Enter OTP" />
+      <button id="verify-otp-btn">Verify OTP</button>
+    </section>
+
+    <!-- Forgot Password Section -->
+    <section id="forgot-password-section" class="section">
+      <h2>Recover Password</h2>
+      <input id="fp-username" placeholder="Enter Username" />
+      <input type="email" id="fp-email" placeholder="Enter Registered Email" />
+      <button id="fp-send-otp">Send OTP</button>
+
+      <div id="fp-otp-area" style="display:none;">
+        <input id="fp-otp" placeholder="Enter OTP" />
+        <button id="fp-verify-otp">Verify OTP</button>
+      </div>
+
+      <div id="fp-pin-area" style="display:none;">
+        <input id="fp-pin" type="password" maxlength="4" placeholder="Enter 4-digit PIN" />
+        <button id="fp-verify-pin">Verify PIN</button>
+      </div>
+
+      <div id="fp-new-pass-area" style="display:none;">
+        <input type="password" id="fp-new-password" placeholder="Enter new password" />
+        <input type="password" id="fp-confirm-password" placeholder="Re-enter new password" />
+        <button id="fp-reset-password">Reset Password</button>
+      </div>
+
+      <p id="fp-result"></p>
+      <p><a href="#" id="back-to-login">Back to Login</a></p>
+    </section>
+
+    <!-- PIN Entry Section -->
+    <section id="pin-section" class="section">
+      <h2>Enter PIN</h2>
+      <div id="pin-display">----</div>
+      <div id="keypad">
+        <button class="pin-key">1</button>
+        <button class="pin-key">2</button>
+        <button class="pin-key">3</button>
+        <button class="pin-key">4</button>
+        <button class="pin-key">5</button>
+        <button class="pin-key">6</button>
+        <button class="pin-key">7</button>
+        <button class="pin-key">8</button>
+        <button class="pin-key">9</button>
+        <button id="clear-pin">C</button>
+        <button class="pin-key">0</button>
+        <button id="submit-pin">OK</button>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard-section" class="section">
+      <h2>Welcome, <span id="user-name"></span></h2>
+      <p>Age: <span id="user-age"></span></p>
+      <p>Bank: <span id="user-bank"></span></p>
+      <p>Account: <span id="user-account"></span></p>
+      <h3>Balance: ₹<span id="balance"></span></h3>
+      <input id="amount" type="number" placeholder="Enter amount" />
+      <button id="deposit-btn">Deposit</button>
+      <button id="withdraw-btn">Withdraw</button>
+      <h4>Recent Transactions:</h4>
+      <ul id="transactions"></ul>
+      <button id="logout-btn" class="logout">Logout</button>
+      <button id="download-statement">Download Bank Statement</button>
+    </section>
+  </div>
+
+  <!-- Help Widget -->
+  <div id="help-widget">
+    <button id="help-toggle" title="Help">❔</button>
+    <div id="help-panel">
+      <h3>Help Center</h3>
+      <div class="faq">
+        <button class="faq-question">🔐 How to reset my password?</button>
+        <div class="faq-answer">
+          Go to login → Click "Forgot Password" → Enter username & email → Verify OTP → Enter your 4-digit PIN → Set new password.
+        </div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">💰 How to deposit money?</button>
+        <div class="faq-answer">After logging in → Enter amount → Click "Deposit".</div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">📤 How to withdraw money?</button>
+        <div class="faq-answer">After logging in → Enter amount → Click "Withdraw".</div>
+      </div>
+      <div class="faq">
+        <button class="faq-question">📄 How to download bank statement?</button>
+        <div class="faq-answer">On dashboard → Click "Download Bank Statement".</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Voice Assistant Widget -->
+  <div id="voice-assistant-widget">
+    <button id="voice-toggle" title="Toggle Voice Assistant">🎤</button>
+    <div id="voice-status" style="display:none;">Listening...</div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+

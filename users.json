@@ -1,0 +1,38 @@
+[
+  {
+    "username": "akg",
+    "password": "cd5a0c7964385357cc7eb681713e42885f53fe6cf4e07fdf81e3bf38a4526f7c",
+    "name": "akg",
+    "age": 152,
+    "bank": "akg",
+    "account": "akh",
+    "pin": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+    "email": "akanshicollege@gmail.com",
+    "balance": 0,
+    "transactions": []
+  },
+  {
+    "username": "ako",
+    "password": "00b2da54fe7db1e434f0406d16583f75b697eac30d6fb1d604c14f35d18e635d",
+    "name": "akg",
+    "age": 521,
+    "bank": "akg",
+    "account": "142",
+    "pin": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+    "email": "akanshisingh7@gmail.com",
+    "balance": 0,
+    "transactions": []
+  },
+  {
+    "username": "akp",
+    "password": "90d361fcc9779c393bedaaa467e5d75a05835745eabc47db9f126b99f16823f3",
+    "name": "ako",
+    "age": 262,
+    "bank": "aks",
+    "account": "ako",
+    "pin": "0ffe1abd1a08215353c233d6e009613e95eec4253832a761af28ff37ac5a150c",
+    "email": "akanshi2005@gmail.com",
+    "balance": 0,
+    "transactions": []
+  }
+]
